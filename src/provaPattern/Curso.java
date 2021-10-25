@@ -36,21 +36,15 @@ public class Curso
 		this.preco = preco;
 	}
 
-	public List<ProductIF> getLivros() {
-		return livros;
+
+	public Curso addLivros(ProductIF livro) {
+		this.livros.add(livro);
+		return this;
 	}
 
-	public void setLivros(List<ProductIF> livros) {
-		this.livros = livros;
+	public Curso addDisciplinas(ProductIF disciplina) {
+		this.disciplinas.add(disciplina);
+		return this;
 	}
-
-	public List<ProductIF> getDisciplinas() {
-		return disciplinas;
-	}
-
-	public void setDisciplinas(List<ProductIF> disciplinas) {
-		this.disciplinas = disciplinas;
-	}
-
 
 }
