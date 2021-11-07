@@ -37,12 +37,12 @@ public class CursoBuilder
 	}
 	
 	
-	public Curso addLivros(ProductIF livro) {
+	public CursoBuilder addLivros(ProductIF livro) {
 		this.livros.add(livro);
 		return this;
 	}
 	
-	public Curso addDisciplinas(ProductIF disciplina) {
+	public CursoBuilder addDisciplinas(ProductIF disciplina) {
 		this.disciplinas.add(disciplina);
 		return this;
 	}

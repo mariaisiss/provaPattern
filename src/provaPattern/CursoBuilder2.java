@@ -2,7 +2,7 @@ package provaPattern;
 
 import java.util.List;
 
-//ABORDAGEEM INNER BUILD, uma classe internta faz o papel do builder, sem precisando de um builder externo.
+//ABORDAGEEM INNER BUILD, uma classe internta faz o papel do builder, sem precisando de um 
 public class CursoBuilder2
 					extends Produto
 					implements ProductIF{
@@ -10,6 +10,7 @@ public class CursoBuilder2
 	private List<ProductIF> livros;
 	private List<ProductIF> disciplinas;
 	private double preco;
+	private String nome;
 	
 	public static class Builder {
 		

@@ -37,6 +37,9 @@ public class Cliente {
 		System.out.println("Produto: " + produto.getDescription());
 		System.out.println("Nome: " + produto.getNome());
 		System.out.println("Código único: " + produto.getCodigoUnico());
+		
+//		String ementa = cursoBuilder.ementa
+//		System.out.println(ementa);
 	}
 	
 	
