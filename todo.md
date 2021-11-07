@@ -29,6 +29,9 @@ CURSO-->>CLIENTE : Receba uma instância de CURSO
 
 ### Diagrama EMENTA BUILDER:
 ```mermaid
+participant CURSO
+participant EMENTABUILDER
+participant EMENTA
 sequenceDiagram
 CURSO->> EMENTABUILDER: Me dê uma instância de EMENTA
 EMENTABUILDER->> EMENTA: gera um build do produto EMENTA no final
