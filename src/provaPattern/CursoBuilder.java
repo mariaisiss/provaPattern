@@ -3,6 +3,7 @@ package provaPattern;
 import java.util.ArrayList;
 import java.util.List;
 
+//ABORDAGEM OUTTER BUILDER, uma classe externa ainda será usada para o processo do builder (Como Fred fez)
 public class CursoBuilder 
 					extends Produto
 					implements ProductIF {

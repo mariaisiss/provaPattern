@@ -18,7 +18,7 @@ public class Cliente {
 						NoSuchMethodException, 
 						SecurityException {
 		
-		TIPOPRODUTOS = TipoProdutos.CURSO;
+		TIPOPRODUTOS = TipoProdutos.LIVRO;
 		this.factoryProdutos = (ProductFactory) (Class.forName(Cliente.TIPOPRODUTOS.getFactoryName()).getConstructor().newInstance());
 		
 	}

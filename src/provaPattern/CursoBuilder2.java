@@ -2,6 +2,7 @@ package provaPattern;
 
 import java.util.List;
 
+//ABORDAGEEM INNER BUILD, uma classe internta faz o papel do builder, sem precisando de um builder externo.
 public class CursoBuilder2
 					extends Produto
 					implements ProductIF{
