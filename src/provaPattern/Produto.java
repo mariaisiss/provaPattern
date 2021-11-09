@@ -2,6 +2,14 @@ package provaPattern;
 
 public abstract class Produto {
 	
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
 	private String nome;
 	private String codigoUnico;
 	public String description;

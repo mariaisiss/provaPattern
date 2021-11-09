@@ -18,9 +18,32 @@ public class Cliente {
 						NoSuchMethodException, 
 						SecurityException {
 		
+//		TIPOPRODUTOS = TipoProdutos.LIVRO;
+//		this.factoryProdutos = (ProductFactory) (Class.forName(Cliente.TIPOPRODUTOS.getFactoryName()).getConstructor().newInstance());
+		
+	}
+
+	public void rodar3() throws InstantiationException, IllegalAccessException, IllegalArgumentException, InvocationTargetException, NoSuchMethodException, SecurityException, ClassNotFoundException {
 		TIPOPRODUTOS = TipoProdutos.LIVRO;
 		this.factoryProdutos = (ProductFactory) (Class.forName(Cliente.TIPOPRODUTOS.getFactoryName()).getConstructor().newInstance());
+		ProductIF livro1 =  factoryProdutos.getProduto("React Native", "1ab4");
+		ProductIF livro2 =  factoryProdutos.getProduto("Vue Js", "2bab4");
 		
+		TIPOPRODUTOS = TipoProdutos.DISCIPLINA;
+		this.factoryProdutos = (ProductFactory) (Class.forName(Cliente.TIPOPRODUTOS.getFactoryName()).getConstructor().newInstance());
+		ProductIF disciplina =  factoryProdutos.getProduto("Desenvolvimento FrontEnd", "dis123as");
+		
+		Curso curso = CursoBuilder
+						.start()
+						.setNome("ADS")
+						.setCodigoUnico("123AB")
+						.setDescription("Curso de Análise e Dev. de Sistemas")
+						.addLivros(livro1)
+						.addLivros(livro2)
+						.addDisciplinas(disciplina)
+						.build();
+		
+		System.out.println(curso.gerarEmenta());
 	}
 	
 	public void rodar2() {
@@ -37,9 +60,6 @@ public class Cliente {
 		System.out.println("Produto: " + produto.getDescription());
 		System.out.println("Nome: " + produto.getNome());
 		System.out.println("Código único: " + produto.getCodigoUnico());
-		
-//		String ementa = cursoBuilder.ementa
-//		System.out.println(ementa);
 	}
 	
 	
@@ -53,7 +73,7 @@ public class Cliente {
 												SecurityException {
 
 		Cliente app = new Cliente();
-		app.rodar();
+		app.rodar3();
 		
 		
 	}

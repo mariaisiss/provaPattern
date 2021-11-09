@@ -1,5 +1,7 @@
 package provaPattern;
 
-public interface CursoIF {
-
+public interface CursoIF extends EmentaIF {
+	
+	
+	
 }

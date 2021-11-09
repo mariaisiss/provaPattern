@@ -12,7 +12,7 @@ public class Curso2
 	private List<ProductIF> disciplinas;
 	private double preco;
 	
-	public Curso(String nome, String codUnico) {
+	public Curso2(String nome, String codUnico) {
 		super("CURSO");
 		this.setNome(nome);
 		this.setCodigoUnico(codUnico);

@@ -1,39 +1,64 @@
 package provaPattern;
+
 import java.util.ArrayList;
 import java.util.List;
 
-
-public class Curso 
-				extends Produto
-				implements ProductIF {
+public class Ementa {
 	
+	private String nome;
+	private String codigoUnico;
+	public String description;
+	
+
+
 	private List<ProductIF> livros;
 	private List<ProductIF> disciplinas;
-	private double preco;
-	private Ementa ementa;
 	
-	public Curso(List<ProductIF> livros, List<ProductIF> disciplinas) {
+	public Ementa(List<ProductIF> livros, List<ProductIF> disciplinas, String nome, String codigoUnico, String description) {
 		this.livros = new ArrayList<ProductIF>();
 		this.disciplinas = new ArrayList<ProductIF>();
-		this.livros = livros;
-		this.disciplinas = disciplinas;
-	}
-	
-	public Curso(List<ProductIF> livros, List<ProductIF> disciplinas, String nome, String codigoUnico, String description, double preco) {
+		
 		this.livros = livros;
 		this.disciplinas = disciplinas;
 		this.setNome(nome);
 		this.setCodigoUnico(codigoUnico);
 		this.setDescription(description);
-		this.setPreco(preco);		
+	}
+	
+	private void setDescription(String description2) {
+		this.description = description2;
+	}
+
+	private void setCodigoUnico(String codigoUnico2) {
+		this.codigoUnico = codigoUnico2;
+	}
+
+	private void setNome(String nome2) {
+		this.nome = nome2;
+	}
+
+
+	private String getNome() {
+		return nome;
+	}
+
+
+	private String getCodigoUnico() {
+		return codigoUnico;
+	}
+
+	
+	private String getDescription() {
+		return description;
 	}
 	
 	public String toString() {
 		String ementa = new String();
 		
 		ementa = "Nome do Curso: " + this.getNome() + ".\n" + 
+				 "Descrição: " + this.getDescription() + ".\n" +
  				 "Código: " + this.getCodigoUnico() + ".\n" + 
-				 "Carga horária: " + "x " + ".\n";
+				 "Carga horária: " + "xx" + ".\n";
 		
 		String temp = new String();
 		for (ProductIF livro : this.livros) {
@@ -49,25 +74,5 @@ public class Curso
 			
 		return ementa;
 	}
-	
-	public String gerarEmenta() {
-		this.ementa = EmentaBuilder
-								.start()
-								.setNome(this.getNome())
-								.setCodigoUnico(this.getCodigoUnico())
-								.setDescription(this.getDescription())
-								.addLivros(this.livros)
-								.addDisciplinas(this.disciplinas)
-								.build();
-		return ementa.toString();
-	}
 
-	public double getPreco() {
-		return preco;
-	}
-
-	public void setPreco(double preco) {
-		this.preco = preco;
-	}
 }
-

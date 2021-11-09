@@ -5,37 +5,65 @@ import java.util.List;
 
 //ABORDAGEM OUTTER BUILDER, uma classe externa ainda será usada para o processo do builder (Como Fred fez)
 public class CursoBuilder 
-					extends Produto
-					implements ProductIF {
+					implements ProductIF, CursoIF {
+	
+	private String nome;
+	private String codigoUnico;
+	public String description;
+	private double preco;
 	
 	private List<ProductIF> livros;
 	private List<ProductIF> disciplinas;
-	private double preco;
+
 	
-	public CursoBuilder(String nome, String codUnico) {
-		super("CURSO");
-		this.setNome(nome);
-		this.setCodigoUnico(codUnico);
+	public static EmentaIF start() {
+		return (EmentaIF) new CursoBuilder();
+	}
+	
+	private CursoBuilder() {
 		this.livros = new ArrayList<ProductIF>();
 		this.disciplinas = new ArrayList<ProductIF>();
 	}
 	
+	public String getNome() {
+		return this.nome;
+	}
+
+	public String getCodigoUnico() {
+		return this.codigoUnico;
+	}
+
 	@Override
 	public String getDescription() {
-	// TODO Auto-generated method stub
 	return this.description;
 	}
 	
 	@Override
 	public double getPreco() {
-	// TODO Auto-generated method stub
 	return this.preco;
 	}
 	
-	public void setPreco(double preco) {
-	this.preco = preco;
+	
+	//Métodos builder
+	public CursoBuilder setNome(String nome) {
+		this.nome = nome;
+		return this;
 	}
 	
+	public CursoBuilder setCodigoUnico(String codigoUnico) {
+		this.codigoUnico = codigoUnico;
+		return this;
+	}
+	
+	public CursoBuilder setPreco(double preco) {
+		this.preco = preco;
+		return this;
+	}
+	
+	public CursoBuilder setDescription(String description) {
+		this.description = description;
+		return this;
+	}
 	
 	public CursoBuilder addLivros(ProductIF livro) {
 		this.livros.add(livro);
@@ -48,12 +76,13 @@ public class CursoBuilder
 	}
 	
 	public Curso build() {
-		for(ProductIF livro : this.livros)
-			livros.setLogger(this.logger);
-		
-		for(ProductIF disciplina : this.disciplinas)
-			disciplinas.setLogger(this.logger);	
-		
-		return new Curso(this.livros, this.disciplinas);
+		return new Curso(this.livros, this.disciplinas, this.nome, this.codigoUnico, this.description, this.preco);
 	}
+
+	@Override
+	public String gerarEmenta() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	
 }
