@@ -5,7 +5,7 @@ import java.util.List;
 
 public class Curso 
 				extends Produto
-				implements ProductIF {
+				implements ProductIF, Prototipavel {
 	
 	private List<ProductIF> livros;
 	private List<ProductIF> disciplinas;
@@ -28,28 +28,26 @@ public class Curso
 		this.setPreco(preco);		
 	}
 	
-	public String toString() {
-		String ementa = new String();
+	private Curso(Curso cursoPrototipar) {
 		
-		ementa = "Nome do Curso: " + this.getNome() + ".\n" + 
- 				 "Código: " + this.getCodigoUnico() + ".\n" + 
-				 "Carga horária: " + "x " + ".\n";
+		this.livros = cursoPrototipar.getLivros();
+		this.disciplinas = cursoPrototipar.getDisciplinas();
+		this.setNome(cursoPrototipar.getNome());
+		this.setCodigoUnico(cursoPrototipar.getCodigoUnico());
+		this.setDescription(cursoPrototipar.getDescription());
+		this.setPreco(cursoPrototipar.getPreco());
 		
-		String temp = new String();
-		for (ProductIF livro : this.livros) {
-			temp = "Livro: " + livro.getNome()  + ".\n";
-			ementa = ementa.concat(temp);
-		}
-			
-		
-		for (ProductIF disciplina : this.disciplinas) {
-			temp = "Disciplina: " + disciplina.getNome()  + ".\n";
-			ementa = ementa.concat(temp);
-		}
-			
-		return ementa;
-	}
+	}	
 	
+	
+	public List<ProductIF> getLivros() {
+		return this.livros;
+	}
+
+	public List<ProductIF> getDisciplinas() {
+		return this.disciplinas;
+	}
+
 	public String gerarEmenta() {
 		this.ementa = EmentaBuilder
 								.start()
@@ -69,5 +67,12 @@ public class Curso
 	public void setPreco(double preco) {
 		this.preco = preco;
 	}
+
+	@Override
+	public Prototipavel prototipar() {
+		return new Curso(this);
+	}
+	
+	
 }
 

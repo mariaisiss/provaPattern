@@ -38,12 +38,19 @@ public class Cliente {
 						.setNome("ADS")
 						.setCodigoUnico("123AB")
 						.setDescription("Curso de Análise e Dev. de Sistemas")
-						.addLivros(livro1)
-						.addLivros(livro2)
-						.addDisciplinas(disciplina)
+						.addLivro(livro1)
+						.addLivro(livro2)
+						.addDisciplina(disciplina)
 						.build();
 		
 		System.out.println(curso.gerarEmenta());
+		
+		Catalogo catalogo = Catalogo.getCatalogo();
+		catalogo.addCurso(curso);
+		String cursoProcurar = "ADS";
+		
+		Curso cursoAchado = catalogo.getCurso(cursoProcurar);
+		System.out.println(cursoAchado.gerarEmenta());
 	}
 	
 	public void rodar2() {

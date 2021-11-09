@@ -6,7 +6,7 @@ import java.util.Map;
 public class Catalogo {
 	
 	private static Catalogo catalogo;
-	private Map<String, EmentaIF> cursos;
+	private Map<String, Curso> cursos;
 	
 	
 	public static Catalogo getCatalogo() throws InstantiationException, IllegalAccessException, ClassNotFoundException {
@@ -16,15 +16,24 @@ public class Catalogo {
 		return Catalogo.catalogo; 
 	}
 	
+	private Catalogo() throws InstantiationException, IllegalAccessException, ClassNotFoundException {
+		this.cursos = new HashMap<String, Curso>();
+	}
+	
 	public void addCurso(Curso curso) {
 		cursos.put(curso.getNome(), curso);
 	}
 	
-	private Catalogo() throws InstantiationException, IllegalAccessException, ClassNotFoundException {
-		this.cursos = new HashMap<String, EmentaIF>();
-//		this.atuadores = new HashMap<TipoAtuador, AtuadorIF>();
-//		this.load();
+	public Curso getCurso(String nomeCurso) {
+		
+		Curso curso = null;
+		if (this.cursos.containsKey(nomeCurso)) {
+			for (String key : cursos.keySet()) {
+	            curso = cursos.get(key);
+			}
+		}
+		
+		return curso;
 	}
-	
 	
 }

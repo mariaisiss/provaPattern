@@ -65,24 +65,40 @@ public class CursoBuilder
 		return this;
 	}
 	
-	public CursoBuilder addLivros(ProductIF livro) {
+	public CursoBuilder addLivro(ProductIF livro) {
 		this.livros.add(livro);
 		return this;
 	}
 	
-	public CursoBuilder addDisciplinas(ProductIF disciplina) {
+	public CursoBuilder addDisciplina(ProductIF disciplina) {
 		this.disciplinas.add(disciplina);
+		return this;
+	}
+	
+	@Override
+	public CursoBuilder addTodosLivros(List<ProductIF> livros) {
+		this.livros = livros;
+		return this;
+	}
+
+	@Override
+	public CursoBuilder addTodasDisciplina(List<ProductIF> disciplinas) {
+		this.disciplinas = disciplinas;
 		return this;
 	}
 	
 	public Curso build() {
 		return new Curso(this.livros, this.disciplinas, this.nome, this.codigoUnico, this.description, this.preco);
 	}
-
+	//Fim dos métodos builder
+	
+	
 	@Override
 	public String gerarEmenta() {
 		// TODO Auto-generated method stub
 		return null;
 	}
+
+
 	
 }
