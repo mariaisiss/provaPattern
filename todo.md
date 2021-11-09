@@ -2,22 +2,22 @@
 
 ## QUEST�O UM
 **PROGRESSO: 100%**
-Obs: (De acordo com a questão 3, precisarem ter um controle de carga horário cursada para cada instância de curso?)
+Obs: (De acordo com a questao 3, precisaremos ter um controle de carga horaria cursada para cada instancia de curso?)
 
 
 ## QUEST�O DOIS
 **PROGRESSO: 90%**
 Vamos precisar de um Builder pro curso:
-- métodos que retornam `this` (FEITO)
-- método build (FEITO)
-- método `gerarEmenta()` que aplique a técnica builder para gerar um objeto do tipo EMENTA (FEITO)
+- metodos que retornam `this` (FEITO)
+- metodos build (FEITO)
+- metodos `gerarEmenta()` que aplique a tecnica builder para gerar um objeto do tipo EMENTA (FEITO)
 
 Implementar um objeto IMENTABUILDER que:
-- deverá ser chamado dentro do CURSO concreto (FEITO)
-- receba as váriaveis do CURSO (FEITO)
-- passe esses valores para as váriaveis deste objeto através do builder (FEITO)
+- devera ser chamado dentro do CURSO concreto (FEITO)
+- receba as variaveis do CURSO (FEITO)
+- passe esses valores para as variaveis deste objeto atraves do builder (FEITO)
 - retorne um objeto tipo ementa para classe curso (FEITO)
-- Definir se será retornada uma EMENTA para o CLIENT ou para CURSO e este fará o `sysout` (FEITO)
+- Definir se sera retornada uma EMENTA para o CLIENT ou para CURSO e este fara o `sysout` (FEITO)
 
 **Verificar se os prerequisitos da quest�o foram atendidos.**
 
