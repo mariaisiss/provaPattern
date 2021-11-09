@@ -1,11 +1,11 @@
 # TODO
 
-## QUESTÃO UM
+## QUEST�O UM
 **PROGRESSO: 100%**
 Obs: (De acordo com a questão 3, precisarem ter um controle de carga horário cursada para cada instância de curso?)
 
 
-## QUESTÃO DOIS
+## QUEST�O DOIS
 **PROGRESSO: 90%**
 Vamos precisar de um Builder pro curso:
 - métodos que retornam `this` (FEITO)
@@ -38,7 +38,7 @@ EMENTA-->>CURSO: Receba uma instância de EMENTA
 ```
 
 
-## QUESTÃO TRÊS
+## QUEST�O TR�S
 **PROGRESSO: 70%**
 
 
