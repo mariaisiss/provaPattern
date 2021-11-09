@@ -10,16 +10,16 @@ Obs: (De acordo com a questao 3, precisaremos ter um controle de carga horaria c
 **PROGRESSO: 90%**
 
 Vamos precisar de um Builder pro curso:
-- metodos que retornam `this` (FEITO)
-- metodos build (FEITO)
-- metodos `gerarEmenta()` que aplique a tecnica builder para gerar um objeto do tipo EMENTA (FEITO)
+- ~~metodos que retornam `this` 
+- ~~metodos build ~~
+- ~~metodos `gerarEmenta()` que aplique a tecnica builder para gerar um objeto do tipo EMENTA ~~
 
 Implementar um objeto IMENTABUILDER que:
-- devera ser chamado dentro do CURSO concreto (FEITO)
-- receba as variaveis do CURSO (FEITO)
-- passe esses valores para as variaveis deste objeto atraves do builder (FEITO)
-- retorne um objeto tipo ementa para classe curso (FEITO)
-- Definir se sera retornada uma EMENTA para o CLIENT ou para CURSO e este fara o `sysout` (FEITO)
+- ~~devera ser chamado dentro do CURSO concreto ~~
+- ~~receba as variaveis do CURSO ~~
+- ~~passe esses valores para as variaveis deste objeto atraves do builder ~~
+- ~~retorne um objeto tipo ementa para classe curso ~~
+- ~~Definir se sera retornada uma EMENTA para o CLIENT ou para CURSO e este fara o `sysout` ~~
 
 **Verificar se os prerequisitos da questão foram atendidos.**
 
@@ -45,10 +45,11 @@ EMENTA-->>CURSO: Receba uma instÃ¢ncia de EMENTA
 
 
 Implementar um objeto IMENTABUILDER que:
-- Seja montado num singleton (FEITO)
+- ~~Seja montado num singleton~~
 - Checar se é possível criar outra instância de fora 
-- Implementar método de busca e retorno de determinado curso (FEITO)
+- ~~Implementar método de busca e retorno de determinado curso~~
 - Retornar um prótipo do curso
 - Verificar como é implementada a questão da carga horária cursada
 
 **Verificar se os prerequisitos da questão foram atendidos.**
+
