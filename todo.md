@@ -49,6 +49,6 @@ Implementar um objeto IMENTABUILDER que:
 - Checar se é possível criar outra instância de fora 
 - Implementar método de busca e retorno de determinado curso (FEITO)
 - Retornar um prótipo do curso
-- Verificar como é implementado a questão da carga horária cursada
+- Verificar como é implementada a questão da carga horária cursada
 
 **Verificar se os prerequisitos da questão foram atendidos.**
