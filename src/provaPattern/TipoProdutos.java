@@ -1,11 +1,10 @@
 package provaPattern;
+// Enumerador, conforme pedido na QUESTÃO 1
 
 public enum TipoProdutos {
 	
 	LIVRO("provaPattern.LivroFactory"), 
 	DISCIPLINA("provaPattern.DisciplinaFactory"),
-	CURSO("provaPattern.CursoFactory"),
-	CURSO2("provaPattern.CursoBuilder2");
 	
 	String className;
 	
