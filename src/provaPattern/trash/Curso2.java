@@ -1,6 +1,9 @@
-package provaPattern;
+package provaPattern.trash;
 import java.util.ArrayList;
 import java.util.List;
+
+import provaPattern.ProductIF;
+import provaPattern.Produto;
 
 
 //TO DO: Implementar builder

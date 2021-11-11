@@ -1,20 +1,28 @@
 package provaPattern;
-
 import java.util.ArrayList;
 import java.util.List;
 
-public class Ementa {
+public class Ementa implements ProductIF{
 	
 	private String nome;
 	private String codigoUnico;
 	public String description;
-	
+	private double preco;
+	private int cargaHorariaTotal;
 
+
+	private int getCargaHorariaTotal() {
+		return cargaHorariaTotal;
+	}
+
+	private void setCargaHorariaTotal(int cargaHorariaTotal) {
+		this.cargaHorariaTotal = cargaHorariaTotal;
+	}
 
 	private List<ProductIF> livros;
 	private List<ProductIF> disciplinas;
 	
-	public Ementa(List<ProductIF> livros, List<ProductIF> disciplinas, String nome, String codigoUnico, String description) {
+	public Ementa(List<ProductIF> livros, List<ProductIF> disciplinas, String nome, String codigoUnico, String description, double preco, int cargaHorariaTotal) {
 		this.livros = new ArrayList<ProductIF>();
 		this.disciplinas = new ArrayList<ProductIF>();
 		
@@ -23,6 +31,35 @@ public class Ementa {
 		this.setNome(nome);
 		this.setCodigoUnico(codigoUnico);
 		this.setDescription(description);
+		this.setPreco(preco);
+		this.setCargaHorariaTotal(cargaHorariaTotal);
+	}
+	
+	public void setPreco(double preco) {
+		this.preco = preco;
+	}
+
+	@Override
+	public double getPreco() {
+		// TODO Auto-generated method stub
+		return this.preco;
+	}
+
+	@Override
+	public String getDescription() {
+		// TODO Auto-generated method stub
+		return this.description;
+	}
+
+	@Override
+	public String getNome() {
+		// TODO Auto-generated method stub
+		return this.nome;
+	}
+
+	@Override
+	public String getCodigoUnico() {
+		return this.codigoUnico;
 	}
 	
 	private void setDescription(String description2) {
@@ -36,21 +73,6 @@ public class Ementa {
 	private void setNome(String nome2) {
 		this.nome = nome2;
 	}
-
-
-	private String getNome() {
-		return nome;
-	}
-
-
-	private String getCodigoUnico() {
-		return codigoUnico;
-	}
-
-	
-	private String getDescription() {
-		return description;
-	}
 	
 	public String toString() {
 		String ementa = new String();
@@ -58,7 +80,7 @@ public class Ementa {
 		ementa = "Nome do Curso: " + this.getNome() + ".\n" + 
 				 "Descrição: " + this.getDescription() + ".\n" +
  				 "Código: " + this.getCodigoUnico() + ".\n" + 
-				 "Carga horária: " + "xx" + ".\n";
+				 "Carga horária: " + this.getCargaHorariaTotal() + ".\n";
 		
 		String temp = new String();
 		for (ProductIF livro : this.livros) {

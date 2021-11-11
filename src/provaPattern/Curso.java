@@ -10,7 +10,11 @@ public class Curso
 	private List<ProductIF> livros;
 	private List<ProductIF> disciplinas;
 	private double preco;
+	private int cargaHorariaTotal;
+	private int cargaHorariaCursada;
 	private Ementa ementa;
+	
+
 	
 	public Curso(List<ProductIF> livros, List<ProductIF> disciplinas) {
 		this.livros = new ArrayList<ProductIF>();
@@ -19,13 +23,15 @@ public class Curso
 		this.disciplinas = disciplinas;
 	}
 	
-	public Curso(List<ProductIF> livros, List<ProductIF> disciplinas, String nome, String codigoUnico, String description, double preco) {
+	public Curso(List<ProductIF> livros, List<ProductIF> disciplinas, String nome, String codigoUnico, String description, double preco, int cargaHorariaTotal) {
 		this.livros = livros;
 		this.disciplinas = disciplinas;
 		this.setNome(nome);
 		this.setCodigoUnico(codigoUnico);
 		this.setDescription(description);
-		this.setPreco(preco);		
+		this.setPreco(preco);
+		this.setCargaHorariaTotal(cargaHorariaTotal);
+		this.zerarCargaHorariaCursada();
 	}
 	
 	private Curso(Curso cursoPrototipar) {
@@ -36,9 +42,9 @@ public class Curso
 		this.setCodigoUnico(cursoPrototipar.getCodigoUnico());
 		this.setDescription(cursoPrototipar.getDescription());
 		this.setPreco(cursoPrototipar.getPreco());
-		
+		this.setCargaHorariaTotal(cursoPrototipar.getCargaHorariaTotal());
+		this.zerarCargaHorariaCursada();
 	}	
-	
 	
 	public List<ProductIF> getLivros() {
 		return this.livros;
@@ -47,15 +53,33 @@ public class Curso
 	public List<ProductIF> getDisciplinas() {
 		return this.disciplinas;
 	}
+	
+	public int getCargaHorariaTotal() {
+		return cargaHorariaTotal;
+	}
+
+
+	public int getCargaHorariaCursada() {
+		return cargaHorariaCursada;
+	}
+	
+	public void setCargaHorariaTotal(int cargaHorariaTotal) {
+		this.cargaHorariaTotal = cargaHorariaTotal;
+	}
+
+	public void setCargaHorariaCursada(int cargaHorariaCursada) {
+		this.cargaHorariaCursada = cargaHorariaCursada;
+	}
 
 	public String gerarEmenta() {
-		this.ementa = EmentaBuilder
+		this.ementa = (Ementa) EmentaBuilder
 								.start()
 								.setNome(this.getNome())
 								.setCodigoUnico(this.getCodigoUnico())
 								.setDescription(this.getDescription())
-								.addLivros(this.livros)
-								.addDisciplinas(this.disciplinas)
+								.addTodosLivros(this.livros)
+								.addTodasDisciplinas(this.disciplinas)
+								.setCargaHorariaTotal(this.cargaHorariaTotal)
 								.build();
 		return ementa.toString();
 	}
@@ -71,6 +95,10 @@ public class Curso
 	@Override
 	public Prototipavel prototipar() {
 		return new Curso(this);
+	}
+
+	private void zerarCargaHorariaCursada() {
+		this.cargaHorariaCursada = 0;
 	}
 	
 	

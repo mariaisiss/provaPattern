@@ -5,22 +5,27 @@ import java.util.List;
 
 //ABORDAGEM OUTTER BUILDER, uma classe externa ainda será usada para o processo do builder (Como Fred fez)
 public class CursoBuilder 
-					implements ProductIF, CursoIF {
+					extends AbstractBuilder
+					implements ProductIF, BuilderIF {
 	
 	private String nome;
 	private String codigoUnico;
 	public String description;
 	private double preco;
+	private int cargaHorariaTotal;
+	private int cargaHorariaCursada;
+	
 	
 	private List<ProductIF> livros;
 	private List<ProductIF> disciplinas;
 
 	
-	public static EmentaIF start() {
-		return (EmentaIF) new CursoBuilder();
+	public static BuilderIF start() {
+		return (BuilderIF) new CursoBuilder();
 	}
 	
-	private CursoBuilder() {
+	public CursoBuilder() {
+		super();
 		this.livros = new ArrayList<ProductIF>();
 		this.disciplinas = new ArrayList<ProductIF>();
 	}
@@ -34,71 +39,81 @@ public class CursoBuilder
 	}
 
 	@Override
-	public String getDescription() {
-	return this.description;
+		public String getDescription() {
+		return this.description;
 	}
 	
 	@Override
-	public double getPreco() {
-	return this.preco;
+		public double getPreco() {
+		return this.preco;
 	}
 	
+	public int getCargaHorariaCursada() {
+		return cargaHorariaCursada;
+	}
 	
-	//Métodos builder
-	public CursoBuilder setNome(String nome) {
-		this.nome = nome;
+	public int getCargaHorariaTotal() {
+		return cargaHorariaTotal;
+	}
+
+	public void setCargaHorariaCursada(int cargaHorariaCursada) {
+		this.cargaHorariaCursada = cargaHorariaCursada;
+	}
+	
+	//Métodos Builder BEGIN
+	
+	public BuilderIF setNome(String nome) {
+		String upCase = nome.toUpperCase();
+		this.nome = upCase;
 		return this;
 	}
 	
-	public CursoBuilder setCodigoUnico(String codigoUnico) {
+	public BuilderIF setCodigoUnico(String codigoUnico) {
 		this.codigoUnico = codigoUnico;
 		return this;
 	}
 	
-	public CursoBuilder setPreco(double preco) {
+	public BuilderIF setCargaHorariaTotal(int cargaHorariaTotal) {
+		this.cargaHorariaTotal = cargaHorariaTotal;
+		return this;
+	}
+
+	
+	public BuilderIF setPreco(double preco) {
 		this.preco = preco;
 		return this;
 	}
 	
-	public CursoBuilder setDescription(String description) {
+	public BuilderIF setDescription(String description) {
 		this.description = description;
 		return this;
 	}
 	
-	public CursoBuilder addLivro(ProductIF livro) {
+	public BuilderIF addLivro(ProductIF livro) {
 		this.livros.add(livro);
 		return this;
 	}
 	
-	public CursoBuilder addDisciplina(ProductIF disciplina) {
+	public BuilderIF addDisciplina(ProductIF disciplina) {
 		this.disciplinas.add(disciplina);
 		return this;
 	}
 	
 	@Override
-	public CursoBuilder addTodosLivros(List<ProductIF> livros) {
+	public BuilderIF addTodosLivros(List<ProductIF> livros) {
 		this.livros = livros;
 		return this;
 	}
 
 	@Override
-	public CursoBuilder addTodasDisciplina(List<ProductIF> disciplinas) {
+	public BuilderIF addTodasDisciplinas(List<ProductIF> disciplinas) {
 		this.disciplinas = disciplinas;
 		return this;
 	}
 	
-	public Curso build() {
-		return new Curso(this.livros, this.disciplinas, this.nome, this.codigoUnico, this.description, this.preco);
+	public ProductIF build() {
+		return new Curso(this.livros, this.disciplinas, this.nome, this.codigoUnico, this.description, this.preco, this.cargaHorariaTotal);
 	}
-	//Fim dos métodos builder
-	
-	
-	@Override
-	public String gerarEmenta() {
-		// TODO Auto-generated method stub
-		return null;
-	}
+	//Métodos Builder END 
 
-
-	
 }

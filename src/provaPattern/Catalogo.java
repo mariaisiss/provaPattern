@@ -26,11 +26,15 @@ public class Catalogo {
 	
 	public Curso getCurso(String nomeCurso) {
 		
+		String upCase = nomeCurso.toUpperCase();
 		Curso curso = null;
-		if (this.cursos.containsKey(nomeCurso)) {
+		if (this.cursos.containsKey(upCase)) {
 			for (String key : cursos.keySet()) {
 	            curso = cursos.get(key);
-			}
+			} 
+		} else {
+			System.out.println("Curso não encontrado");
+			curso = null;
 		}
 		
 		return curso;
