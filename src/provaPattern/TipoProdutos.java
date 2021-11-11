@@ -3,9 +3,7 @@ package provaPattern;
 public enum TipoProdutos {
 	
 	LIVRO("provaPattern.LivroFactory"), 
-	DISCIPLINA("provaPattern.DisciplinaFactory"),
-	CURSO("provaPattern.CursoFactory"),
-	CURSO2("provaPattern.CursoBuilder2");
+	DISCIPLINA("provaPattern.DisciplinaFactory");
 	
 	String className;
 	
