@@ -43,23 +43,17 @@ public class DiretorDeBuilders {
 	}
 	
 	public Ementa construirEmenta(
-			String nome,
-			String codUnico,
-			String description,
-			double preco,
-			int cargaHorariaTotal,
-			List<ProductIF> livros, 
-			List<ProductIF> disciplinas)  {
+			Curso curso)  {
 
-			Ementa ementa = (Ementa) CursoBuilder
+			Ementa ementa = (Ementa) EmentaBuilder
 				.start()
-				.setNome(nome)
-				.setCodigoUnico(codUnico)
-				.setDescription(description)
-				.setCargaHorariaTotal(cargaHorariaTotal)
-				.setPreco(preco)
-				.addTodosLivros(livros)
-				.addTodasDisciplinas(disciplinas)
+				.setNome(curso.getNome())
+				.setCodigoUnico(curso.getCodigoUnico())
+				.setDescription(curso.getDescription())
+				.setCargaHorariaTotal(curso.getCargaHorariaTotal())
+				.setPreco(curso.getPreco())
+				.addTodosLivros(curso.getLivros())
+				.addTodasDisciplinas(curso.getDisciplinas())
 				.build();
 			return ementa;
 

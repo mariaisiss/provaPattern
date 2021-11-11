@@ -44,7 +44,7 @@ public class Cliente {
 		CursoBuilder builder = new CursoBuilder();
 		DiretorDeBuilders diretor = new DiretorDeBuilders(builder);
 		
-		Curso curso = (Curso) diretor.construirCurso(
+		Curso curso = diretor.construirCurso(
 								"ADS", 
 								"4s2x1c233v", 
 								"Curso de Análise e Desenvolv. de Sistemas",
@@ -65,6 +65,10 @@ public class Cliente {
 		//Curso prototipado com a carga horária cursada zerada pro novo aluno
 		Curso novoCurso = (Curso) curso.prototipar();
 		System.out.println("\nCurso Prototipado\n"+ novoCurso.gerarEmenta() + "Carga Horária Cursada: " + novoCurso.getCargaHorariaCursada());
+		
+		//Printa ementa na tela
+		Ementa ementa = diretor.construirEmenta(novoCurso);
+		System.out.println("\nEmenta do Curso\n" + ementa.toString());
 		
 	}
 	
