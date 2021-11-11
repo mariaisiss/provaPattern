@@ -4,7 +4,7 @@ package provaPattern;
 public enum TipoProdutos {
 	
 	LIVRO("provaPattern.LivroFactory"), 
-	DISCIPLINA("provaPattern.DisciplinaFactory"),
+	DISCIPLINA("provaPattern.DisciplinaFactory");
 	
 	String className;
 	
